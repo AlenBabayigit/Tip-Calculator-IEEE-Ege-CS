@@ -75,6 +75,9 @@ header{
     -webkit-box-shadow: -2px 2px 3px 1px rgba(0,0,0,0.35); 
     box-shadow: -2px 2px 3px 1px rgba(0,0,0,0.35);
 }
+input:focus {
+    outline: white;
+}
 
 button{
     width: 18%;
@@ -129,12 +132,13 @@ footer {
     margin-right: 3%;
 }
 
-.custom{
+.custom {
     height: 40%;
     width: 18%;
     text-align: center;
     background-color: aliceblue;
-    font-size: large;
+    font-weight: bold;
+    font-size: larger;
     border-radius: 10%;
     border-style: none;
     margin-right: 8%;

@@ -1,13 +1,8 @@
 document.getElementById("buttons").addEventListener("click",function(event) {
+        
+    calculateTotal(event.target.innerText);     
 
-        calculateTotal(event.target.innerText); 
-    
 })
-
-function calculateCustom(){
-    let CustomPercent = parseFloat(document.querySelector(".custom").innerText)
-    handleMath(CustomPercent)
-}
 
 document.querySelector(".reset").addEventListener("click",function() {
     
@@ -16,7 +11,9 @@ document.querySelector(".reset").addEventListener("click",function() {
     document.querySelector(".tip").innerText = "0$";
     document.querySelector(".total").innerText = "0$";
     document.querySelector(".input").placeholder = "Please type an amount";
-   
+    document.querySelector(".custom").value = null;
+    document.querySelector(".custom").placeholder = "Custom";
+
 })
 
 
@@ -27,12 +24,21 @@ function calculateTotal(per) {
         document.querySelector(".input").placeholder = "NOT VALID!!";
         return;
     }
+
+    else if(per == ""){
+                document.querySelector(".custom").addEventListener("keypress",function(e){
+                    if(e.key==="Enter")
+                        handleMath(document.querySelector(".custom").value)
+            })
+        }
+
     handleMath(per);
 }
+    
 
 function handleMath(per){
 
-    let value = parseFloat(document.querySelector(".input").value);
+    let value = parseFloat(document.querySelector(".input").value)
 
     document.querySelector(".amount").innerText = value + "$";
      
